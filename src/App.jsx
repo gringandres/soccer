@@ -1,8 +1,9 @@
 import { useState } from "react";
 import WednesdayMatch from "./components/WednesdayMatch";
+import Tournament from "./components/Tournament";
 import { BUTTON_OUTLINE_BLUE } from "./constants/style.utils";
 const App = () => {
-  const [pageNumber, setPageNumber] = useState(0);
+  const [pageNumber, setPageNumber] = useState(2);
   return (
     <section className="Main">
       <h1>Team International Futbol</h1>
@@ -30,6 +31,9 @@ const App = () => {
       </section>
       {pageNumber === 1 && (
         <WednesdayMatch pageNumber={pageNumber} setPageNumber={setPageNumber} />
+      )}
+      {pageNumber === 2 && (
+        <Tournament pageNumber={pageNumber} setPageNumber={setPageNumber} />
       )}
     </section>
   );
