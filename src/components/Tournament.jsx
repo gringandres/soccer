@@ -26,7 +26,7 @@ const Tournament = () => {
         </section>
       )}
 
-      {pageNumber === 1 && <Form />}
+      {pageNumber === 1 && <Form setPageNumber={setPageNumber} />}
     </section>
   );
 };

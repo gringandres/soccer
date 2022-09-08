@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { BUTTON_OUTLINE_BLUE } from "../constants/style.utils";
-const Form = () => {
+const Form = ({ setPageNumber }) => {
   const [info, setInfo] = useState({
     name: "",
     id: "",
