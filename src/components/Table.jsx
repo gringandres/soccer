@@ -12,6 +12,19 @@ const RowGenerater = ({ player, allPlayers, setAllPlayers }) => {
   });
   const [isSubmited, setIsSubmited] = useState(false);
 
+  const goalKeeperFilter = allPlayers.filter(
+    (goalKeeper) => goalKeeper.posicion === "arquero"
+  );
+  const defenseFilter = allPlayers.filter(
+    (defense) => defense.posicion === "defensa"
+  );
+  const centerFilter = allPlayers.filter(
+    (center) => center.posicion === "centro"
+  );
+  const fowardFilter = allPlayers.filter(
+    (foward) => foward.posicion === "delantero"
+  );
+
   const handleInfo = (e) => {
     const { name, value } = e.target;
     setInfo({ ...info, [name]: value });
@@ -19,9 +32,16 @@ const RowGenerater = ({ player, allPlayers, setAllPlayers }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!info.name && !info.posicion) {
-      return alert("llene los campos");
-    }
+    if (!info.name && !info.posicion) return alert("llene los campos");
+    if (info.posicion === "arquero" && goalKeeperFilter.length >= 2)
+      return alert("Ya hay dos arqueros");
+    if (info.posicion === "defensa" && defenseFilter.length >= 4)
+      return alert("Ya hay cuatro defensas");
+    if (info.posicion === "centro" && centerFilter.length >= 4)
+      return alert("Ya hay cuatro centros");
+    if (info.posicion === "delantero" && fowardFilter.length >= 4)
+      return alert("Ya hay cuatro delantero");
+
     setAllPlayers([...allPlayers, info]);
     setIsSubmited(true);
   };
@@ -62,10 +82,18 @@ const RowGenerater = ({ player, allPlayers, setAllPlayers }) => {
             disabled={isSubmited}
           >
             <option value="empty"></option>
-            <option value="arquero">Arquero</option>
-            <option value="defensa">Defensa</option>
-            <option value="centro">Centro</option>
-            <option value="delantero">Delantero</option>
+            <option value="arquero" disabled={goalKeeperFilter.length >= 2}>
+              Arquero
+            </option>
+            <option value="defensa" disabled={defenseFilter.length >= 4}>
+              Defensa
+            </option>
+            <option value="centro" disabled={centerFilter.length >= 4}>
+              Centro
+            </option>
+            <option value="delantero" disabled={fowardFilter.length >= 4}>
+              Delantero
+            </option>
           </select>
         </div>
       </th>
