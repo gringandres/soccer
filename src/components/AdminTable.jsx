@@ -1,3 +1,4 @@
+import "../style.css";
 const RowGenerater = ({ index, player }) => {
   return (
     <tr>
@@ -16,29 +17,37 @@ const RowGenerater = ({ index, player }) => {
 
 const AdminTable = ({ allPlayerTournament }) => {
   return (
-    <table className="table">
-      <thead>
-        <tr>
-          <th>
-            <abbr title="Numero">N°</abbr>
-          </th>
-          <th>Nombre Completo</th>
-          <th>Identificacion</th>
-          <th>EPS</th>
-          <th>Cuidad</th>
-          <th>Talla Camisa</th>
-          <th>Talla Pantaloneta</th>
-          <th>Posicion de juego</th>
-          <th>Contacto</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        {allPlayerTournament.map((player, index) => (
-          <RowGenerater key={index} player={player} index={index} />
-        ))}
-      </tbody>
-    </table>
+    <section>
+      {allPlayerTournament.length > 0 ? (
+        <table className="table">
+          <thead>
+            <tr>
+              <th>
+                <abbr title="Numero">N°</abbr>
+              </th>
+              <th>Nombre Completo</th>
+              <th>Identificacion</th>
+              <th>EPS</th>
+              <th>Cuidad</th>
+              <th>Talla Camisa</th>
+              <th>Talla Pantaloneta</th>
+              <th>Posicion de juego</th>
+              <th>Contacto</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {allPlayerTournament.map((player, index) => (
+              <RowGenerater key={index} player={player} index={index} />
+            ))}
+          </tbody>
+        </table>
+      ) : (
+        <div className="loader-wrapper">
+          <div className="loader is-loading"></div>
+        </div>
+      )}
+    </section>
   );
 };
 
