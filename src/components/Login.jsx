@@ -12,15 +12,14 @@ const Login = () => {
     setInfo({ ...info, [name]: value });
   };
 
-
   const handleSubmit = (e) => {
-    console.log(window.location)
     e.preventDefault()
     const { user, password } = info
     if (!user && !password) {
       return alert('Ingrese todo los campos')
     }
     if (user === import.meta.env.VITE_CORREO && password === import.meta.env.VITE_PASSWORD) {
+      sessionStorage.setItem("token", import.meta.env.VITE_CORREO);
       goToPathnameUrl('/tournament/admin-info')
     } else {
       window.location.replace('/')

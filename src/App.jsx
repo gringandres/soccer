@@ -42,7 +42,7 @@ const App = () => {
       <Route path='/tournament/admin-login'>
         <Login />
       </Route>
-      <Route path='/tournament/admin-info'> {/*ojo aqui con la validacion*/}
+      <Route path='/tournament/admin-info'>
         <AdminInfo />
       </Route>
     </>
