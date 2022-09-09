@@ -2,12 +2,12 @@ import { initializeApp } from 'firebase/app'
 import { getFirestore } from 'firebase/firestore'
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDUY-vZHTiEbb0g29u_qY35SOSaih9SS9A",
-  authDomain: "team-tournament-cdcb2.firebaseapp.com",
-  projectId: "team-tournament-cdcb2",
-  storageBucket: "team-tournament-cdcb2.appspot.com",
-  messagingSenderId: "202303010557",
-  appId: "1:202303010557:web:50ee05c474ff1a760e7094"
+  apiKey: import.meta.env.API_KEY,
+  authDomain: import.meta.env.AUTH_DOMAIN,
+  projectId: import.meta.env.PROJECT_ID,
+  storageBucket: import.meta.env.STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.MESSAGING_SENDER_ID,
+  appId: import.meta.env.APP_ID
 };
 
 const app = initializeApp(firebaseConfig);

@@ -20,12 +20,14 @@ const Login = () => {
     if (!user && !password) {
       return alert('Ingrese todo los campos')
     }
-    if (user === 'deicy@gmail.com' && password === 'deicygallego1627') {
+    if (user === import.meta.env.CORREO && password === import.meta.env.PASSWORD) {
       goToPathnameUrl('/tournament/admin-info')
     } else {
       window.location.replace('/')
     }
   }
+
+  console.log(import.meta.env.CORREO)
 
   return (
     <>
