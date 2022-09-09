@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   BUTTON_OUTLINE_BLUE,
   BUTTON_OUTLINE_RED,
 } from "../constants/style.utils";
 import vite from "../../public/vite.svg";
+import { playerFiltered } from "../utils/helpers";
+import { database } from '../firebase/firebase'
+import { collection, addDoc, getDocs } from 'firebase/firestore'
+
 const RowGenerater = ({ player, allPlayers, setAllPlayers }) => {
   const [info, setInfo] = useState({
     name: "",
@@ -11,19 +15,31 @@ const RowGenerater = ({ player, allPlayers, setAllPlayers }) => {
     index: player + 1,
   });
   const [isSubmited, setIsSubmited] = useState(false);
+  const [probando, setProbando] = useState([])
 
-  const goalKeeperFilter = allPlayers.filter(
-    (goalKeeper) => goalKeeper.posicion === "arquero"
-  );
-  const defenseFilter = allPlayers.filter(
-    (defense) => defense.posicion === "defensa"
-  );
-  const centerFilter = allPlayers.filter(
-    (center) => center.posicion === "centro"
-  );
-  const fowardFilter = allPlayers.filter(
-    (foward) => foward.posicion === "delantero"
-  );
+  // useEffect(() => {
+  const getInfoFromDatabase = () => {
+    const allData = collection(database, 'WednesdayMatch')
+    getDocs(allData)
+      .then((response) => {
+        const { docs } = response
+        // const allPlayer = docs.map(doc => ({
+        //   data: doc.data(),
+        //   id: doc.id
+        // }))
+        const allPlayers = docs.map(doc => doc.data())
+        console.log(allPlayers)
+        setProbando(allPlayers)
+      })
+      .catch((error) => console.log(error.message))
+  }
+  // getInfoFromDatabase()
+  // }, [])
+
+  const goalKeeperFilter = playerFiltered(allPlayers, 'arquero')
+  const defenseFilter = playerFiltered(allPlayers, 'defensa')
+  const centerFilter = playerFiltered(allPlayers, 'centro')
+  const fowardFilter = playerFiltered(allPlayers, 'delantero')
 
   const handleInfo = (e) => {
     const { name, value } = e.target;
@@ -32,17 +48,21 @@ const RowGenerater = ({ player, allPlayers, setAllPlayers }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!info.name && !info.posicion) return alert("llene los campos");
-    if (info.posicion === "arquero" && goalKeeperFilter.length >= 2)
+    const { name, posicion, index } = info
+    if (!name && !posicion) return alert("llene los campos");
+    if (posicion === "arquero" && goalKeeperFilter.length >= 2)
       return alert("Ya hay dos arqueros");
-    if (info.posicion === "defensa" && defenseFilter.length >= 4)
+    if (posicion === "defensa" && defenseFilter.length >= 4)
       return alert("Ya hay cuatro defensas");
-    if (info.posicion === "centro" && centerFilter.length >= 4)
+    if (posicion === "centro" && centerFilter.length >= 4)
       return alert("Ya hay cuatro centros");
-    if (info.posicion === "delantero" && fowardFilter.length >= 4)
+    if (posicion === "delantero" && fowardFilter.length >= 4)
       return alert("Ya hay cuatro delantero");
 
-    setAllPlayers([...allPlayers, info]);
+    const playerData = collection(database, 'WednesdayMatch')
+    addDoc(playerData, { name, posicion, index }).then(res => console.log('todo bien'))
+    getInfoFromDatabase()
+    // setAllPlayers([...allPlayers, info]); // esto hay que cambiarlo
     setIsSubmited(true);
   };
 
@@ -58,6 +78,11 @@ const RowGenerater = ({ player, allPlayers, setAllPlayers }) => {
     setAllPlayers(newPlayers);
     setIsSubmited(false);
   };
+  // console.log(info.index, 'info')
+  console.log(probando, 'probando')
+
+  // const isTrue = () => probando.map(pro => pro.index === info.index)
+  // console.log(isTrue(), 'isTrue')
 
   return (
     <tr>
@@ -76,7 +101,7 @@ const RowGenerater = ({ player, allPlayers, setAllPlayers }) => {
         <div className="select is-info">
           <select
             className=""
-            value={info.posicion}
+            value={info.index === probando.index ? probando.posicion : info.posicion}
             name="posicion"
             onChange={handleInfo}
             disabled={isSubmited}
