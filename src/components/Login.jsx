@@ -27,6 +27,8 @@ const Login = () => {
     }
   }
 
+  console.log(import.meta.env.CORREO)
+
   return (
     <>
       <section style={{ margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', placeContent: 'center', height: '100vh' }}>
