@@ -5,8 +5,6 @@ import {
 } from "../constants/style.utils";
 import vite from "../../public/vite.svg";
 import { playerFiltered } from "../utils/helpers";
-import { database } from '../supabase/firebase'
-import { collection, addDoc, getDocs } from 'firebase/firestore'
 
 const RowGenerater = ({ player, allPlayers, setAllPlayers }) => {
   const [info, setInfo] = useState({
