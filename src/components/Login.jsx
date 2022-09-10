@@ -40,30 +40,35 @@ const Login = () => {
           height: "100vh",
         }}
       >
-        <div style={{ gridColumn: "2" }} className="field">
-          <input
-            className="input"
-            type="text"
-            placeholder="User"
-            value={info.user}
-            name="user"
-            onChange={handleInfo}
-          />
-        </div>
-        <div style={{ gridColumn: "2" }} className="field">
-          <input
-            className="input"
-            type="password"
-            placeholder="Password"
-            value={info.password}
-            name="password"
-            onChange={handleInfo}
-          />
-        </div>
-        <div style={{ gridColumn: "2", margin: "0 auto" }} className="field">
-          <button className="button is-success" onClick={handleSubmit}>
-            Login
-          </button>
+        <div className="box p-5" style={{ gridColumn: "2" }}>
+          <div className="field">
+            <input
+              className="input"
+              type="text"
+              placeholder="User"
+              value={info.user}
+              name="user"
+              onChange={handleInfo}
+            />
+          </div>
+          <div className="field">
+            <input
+              className="input"
+              type="password"
+              placeholder="Password"
+              value={info.password}
+              name="password"
+              onChange={handleInfo}
+            />
+          </div>
+          <div className="field is-flex is-justify-content-center mt-5">
+            <button className="button is-success" onClick={handleSubmit}>
+              Login
+            </button>
+            <button className="button is-success ml-3" onClick={() => goToPathnameUrl('/')}>
+              Cancel
+            </button>
+          </div>
         </div>
       </section>
     </>
