@@ -1,39 +1,41 @@
+import { addStyles } from "../utils/helpers";
+import { WHITE_TEXT } from "../constants/style.utils";
 import "../style.css";
+
 const RowGenerater = ({ index, player }) => {
   return (
-    <tr>
-      <th>{index + 1}</th>
-      <th>{player.name}</th>
-      <th>{player.cc}</th>
-      <th>{player.eps}</th>
-      <th>{player.cuidad}</th>
-      <th>{player.camiseta}</th>
-      <th>{player.pantaloneta}</th>
-      <th>{player.posicion}</th>
-      <th>{player.contacto}</th>
-    </tr>
+    <tr className={addStyles(index, 'has-background-grey')}>
+      <th style={{ textAlign: 'center' }} className={addStyles(index, WHITE_TEXT)}>{index + 1}</th>
+      <th style={{ textAlign: 'center' }} className={addStyles(index, WHITE_TEXT)}>{player.name.toLowerCase()}</th>
+      <th style={{ textAlign: 'center' }} className={addStyles(index, WHITE_TEXT)}>{player.cc}</th>
+      <th style={{ textAlign: 'center' }} className={addStyles(index, WHITE_TEXT)}>{player.eps.toLowerCase()}</th>
+      <th style={{ textAlign: 'center' }} className={addStyles(index, WHITE_TEXT)}>{player.ciudad.toLowerCase()}</th>
+      <th style={{ textAlign: 'center' }} className={addStyles(index, WHITE_TEXT)}>{player.camiseta.toUpperCase()}</th>
+      <th style={{ textAlign: 'center' }} className={addStyles(index, WHITE_TEXT)}>{player.pantaloneta.toUpperCase()}</th>
+      <th style={{ textAlign: 'center' }} className={addStyles(index, WHITE_TEXT)}>{player.posicion.toLowerCase()}</th>
+      <th style={{ textAlign: 'center' }} className={addStyles(index, WHITE_TEXT)}>{player.contacto}</th>
+    </tr >
   );
 };
 
 const AdminTable = ({ allPlayerTournament }) => {
   return (
-    <section>
+    <section style={{ display: "grid", placeContent: "center" }}>
       {allPlayerTournament.length > 0 ? (
-        <table className="table">
+        <table className="table is-bordered mx-4 mt-4 is-striped is-hoverable">
           <thead>
-            <tr>
-              <th>
+            <tr className="has-background-primary">
+              <th style={{ textAlign: 'center' }} className={WHITE_TEXT}>
                 <abbr title="Numero">N°</abbr>
               </th>
-              <th>Nombre Completo</th>
-              <th>Identificacion</th>
-              <th>EPS</th>
-              <th>Cuidad</th>
-              <th>Talla Camisa</th>
-              <th>Talla Pantaloneta</th>
-              <th>Posicion de juego</th>
-              <th>Contacto</th>
-              <th></th>
+              <th style={{ textAlign: 'center' }} className={WHITE_TEXT}>Nombre Completo</th>
+              <th style={{ textAlign: 'center' }} className={WHITE_TEXT}>Identificacion</th>
+              <th style={{ textAlign: 'center' }} className={WHITE_TEXT}>EPS</th>
+              <th style={{ textAlign: 'center' }} className={WHITE_TEXT}>Ciudad</th>
+              <th style={{ textAlign: 'center' }} className={WHITE_TEXT}>Talla Camisa</th>
+              <th style={{ textAlign: 'center' }} className={WHITE_TEXT}>Talla Pantaloneta</th>
+              <th style={{ textAlign: 'center' }} className={WHITE_TEXT}>Posicion de juego</th>
+              <th style={{ textAlign: 'center' }} className={WHITE_TEXT}>Contacto</th>
             </tr>
           </thead>
           <tbody>
@@ -46,8 +48,9 @@ const AdminTable = ({ allPlayerTournament }) => {
         <div className="loader-wrapper">
           <div className="loader is-loading"></div>
         </div>
-      )}
-    </section>
+      )
+      }
+    </section >
   );
 };
 

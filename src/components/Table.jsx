@@ -5,7 +5,7 @@ import {
 } from "../constants/style.utils";
 import vite from "../../public/vite.svg";
 import { playerFiltered } from "../utils/helpers";
-import { database } from '../firebase/firebase'
+import { database } from '../supabase/firebase'
 import { collection, addDoc, getDocs } from 'firebase/firestore'
 
 const RowGenerater = ({ player, allPlayers, setAllPlayers }) => {
@@ -15,24 +15,24 @@ const RowGenerater = ({ player, allPlayers, setAllPlayers }) => {
     index: player + 1,
   });
   const [isSubmited, setIsSubmited] = useState(false);
-  const [probando, setProbando] = useState([])
+  // const [probando, setProbando] = useState([])
 
-  // useEffect(() => {
-  const getInfoFromDatabase = () => {
-    const allData = collection(database, 'WednesdayMatch')
-    getDocs(allData)
-      .then((response) => {
-        const { docs } = response
-        // const allPlayer = docs.map(doc => ({
-        //   data: doc.data(),
-        //   id: doc.id
-        // }))
-        const allPlayers = docs.map(doc => doc.data())
-        console.log(allPlayers)
-        setProbando(allPlayers)
-      })
-      .catch((error) => console.log(error.message))
-  }
+  // useEffect(() => { // hacer con supabase
+  // const getInfoFromDatabase = () => {
+  //   const allData = collection(database, 'WednesdayMatch')
+  //   getDocs(allData)
+  //     .then((response) => {
+  //       const { docs } = response
+  //       // const allPlayer = docs.map(doc => ({
+  //       //   data: doc.data(),
+  //       //   id: doc.id
+  //       // }))
+  //       const allPlayers = docs.map(doc => doc.data())
+  //       console.log(allPlayers)
+  //       setProbando(allPlayers)
+  //     })
+  //     .catch((error) => console.log(error.message))
+  // }
   // getInfoFromDatabase()
   // }, [])
 
@@ -59,8 +59,8 @@ const RowGenerater = ({ player, allPlayers, setAllPlayers }) => {
     if (posicion === "delantero" && fowardFilter.length >= 4)
       return alert("Ya hay cuatro delantero");
 
-    const playerData = collection(database, 'WednesdayMatch')
-    addDoc(playerData, { name, posicion, index }).then(res => console.log('todo bien'))
+    // const playerData = collection(database, 'WednesdayMatch') // hacer con supabase
+    // addDoc(playerData, { name, posicion, index }).then(res => console.log('todo bien'))
     getInfoFromDatabase()
     // setAllPlayers([...allPlayers, info]); // esto hay que cambiarlo
     setIsSubmited(true);
@@ -79,7 +79,7 @@ const RowGenerater = ({ player, allPlayers, setAllPlayers }) => {
     setIsSubmited(false);
   };
   // console.log(info.index, 'info')
-  console.log(probando, 'probando')
+  // console.log(probando, 'probando')
 
   // const isTrue = () => probando.map(pro => pro.index === info.index)
   // console.log(isTrue(), 'isTrue')

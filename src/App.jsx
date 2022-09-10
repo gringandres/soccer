@@ -12,23 +12,30 @@ const App = () => {
   return (
     <>
       <Route path='/'>
-        <section className="Main">
-          <h1>Team International Futbol</h1>
+        <div
+          style={{ display: "grid", placeContent: "center", height: "100vh" }}
+        >
           <section>
-            <button
-              className={BUTTON_OUTLINE_BLUE}
-              onClick={() => goToPathnameUrl("/wednesdayMatch")}
+            <h1 style={{ textAlign: "center" }} className="title is-4">Team International Futbol</h1>
+            <section
+              className="box py-5 px-6"
+              style={{ gridColumn: "2", display: "flex", justifyContent: "center" }}
             >
-              Partidos Miercoles
-            </button>
-            <button
-              className={BUTTON_OUTLINE_BLUE}
-              onClick={() => goToPathnameUrl("/tournament")}
-            >
-              Torneo
-            </button>
+              <button
+                className={BUTTON_OUTLINE_BLUE}
+                onClick={() => goToPathnameUrl("/wednesdayMatch")}
+              >
+                Partidos Miercoles
+              </button>
+              <button
+                className={`${BUTTON_OUTLINE_BLUE} ml-3`}
+                onClick={() => goToPathnameUrl("/tournament")}
+              >
+                Torneo
+              </button>
+            </section>
           </section>
-        </section>
+        </div>
       </Route>
       <Route path='/wednesdayMatch'>
         <WednesdayMatch />
