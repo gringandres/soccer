@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import { BUTTON_OUTLINE_BLUE } from "../constants/style.utils";
 import { goToPathnameUrl } from "../utils/helpers";
 import { setTournamentData } from "../supabase/supabaseFunctions";
+import { inputObject, selectObject } from "../utils/helperObjects";
+import SelectRender from "./SelectRender";
+import InputRender from "./InputRender";
+import '../style.css';
 
 const Form = () => {
   const [info, setInfo] = useState({
@@ -14,6 +18,7 @@ const Form = () => {
     posicion: "",
     contacto: "",
   });
+
   const handleInfo = (e) => {
     const { name, value } = e.target;
     setInfo({ ...info, [name]: value });
@@ -41,173 +46,39 @@ const Form = () => {
 
   return (
     <>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          placeContent: "center",
-          height: "100vh",
-        }}
-      >
-        <h2 style={{ textAlign: "center" }} className="title is-3"> LLENA ESTE FORMULARIO PARA LA INSCRIPCION</h2>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 5fr 1fr" }}>
-          <section className="box p-5" style={{ gridColumn: "2" }}>
-            <div className="field is-horizontal">
-              <div className="field-label is-normal">
-                <label className="label">Nombre Completo</label>
-              </div>
-              <div className="field-body">
-                <div className="field">
-                  <input
-                    className="input is-info"
-                    type="text"
-                    placeholder="Nombre"
-                    value={info.name}
-                    name="name"
-                    onChange={handleInfo}
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="field is-horizontal ">
-              <div className="field-label is-normal">
-                <label className="label">ID</label>
-              </div>
-              <div className="field-body">
-                <div className="field">
-                  <input
-                    className="input is-info"
-                    type="text"
-                    placeholder="ID (Passport o cc)"
-                    value={info.id}
-                    name="id"
-                    onChange={handleInfo}
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="field is-horizontal ">
-              <div className="field-label is-normal">
-                <label className="label">EPS</label>
-              </div>
-              <div className="field-body">
-                <div className="field">
-                  <input
-                    className="input is-info"
-                    type="text"
-                    placeholder="EPS"
-                    value={info.eps}
-                    name="eps"
-                    onChange={handleInfo}
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="field is-horizontal ">
-              <div className="field-label is-normal">
-                <label className="label">ciudad</label>
-              </div>
-              <div className="field-body">
-                <div className="field">
-                  <input
-                    className="input is-info"
-                    type="text"
-                    placeholder="ciudad (Solo colombia)"
-                    value={info.ciudad}
-                    name="ciudad"
-                    onChange={handleInfo}
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="field is-horizontal ">
-              <div className="field-label is-normal">
-                <label className="label">Talla Camiseta</label>
-              </div>
+      <div className="form-container">
+        <h2 className="title is-3">LLENA ESTE FORMULARIO PARA LA INSCRIPCION</h2>
+        <div>
+          <section className="form-section box p-5">
+            {inputObject.map(input =>
+              <InputRender
+                key={input.label + 1}
+                label={input.label}
+                inputValue={info[`${input.inputValue}`]}
+                inputName={input.inputName}
+                placeholder={input.placeholder}
+                handleInfo={handleInfo}
+              />
+            )}
+            {selectObject.map(select =>
+              <SelectRender
+                key={select.label + 1}
+                label={select.label}
+                selectValue={info[`${select.selectValue}`]}
+                selectName={select.selectName}
+                optionValues={select.optionValues}
+                handleInfo={handleInfo}
+              />
+            )}
+            <InputRender
+              label="Contacto de emergencia"
+              inputValue={info.contacto}
+              inputName="contacto"
+              placeholder="Numero de emergencia"
+              handleInfo={handleInfo}
+            />
 
-              <div className="field-body">
-                <div style={{ width: '100%' }} className="select is-info">
-                  <select
-                    className="container"
-                    value={info.camiseta}
-                    name="camiseta"
-                    onChange={handleInfo}
-                    style={{ width: "100%" }}
-                  >
-                    <option value="empty"></option>
-                    <option value="s">S</option>
-                    <option value="m">M</option>
-                    <option value="l">L</option>
-                    <option value="xl">XL</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div className="field is-horizontal ">
-              <div className="field-label is-normal">
-                <label className="label">Talle Pantaloneta</label>
-              </div>
-              <div className="field-body">
-                <div style={{ width: '100%' }} className="select is-info">
-                  <select
-                    className=""
-                    value={info.pantaloneta}
-                    name="pantaloneta"
-                    onChange={handleInfo}
-                    style={{ width: '100%' }}
-                  >
-                    <option value="empty"></option>
-                    <option value="s">S</option>
-                    <option value="m">M</option>
-                    <option value="l">L</option>
-                    <option value="xl">XL</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div className="field is-horizontal ">
-              <div className="field-label is-normal">
-                <label className="label">Posicion de Juego</label>
-              </div>
-              <div className="field-body">
-                <div style={{ width: '100%' }} className="select is-info">
-                  <select
-                    className=""
-                    value={info.posicion}
-                    name="posicion"
-                    onChange={handleInfo}
-                    style={{ width: '100%' }}
-                  >
-                    <option value="empty"></option>
-                    <option value="arquero">Arquero</option>
-                    <option value="defensa">Defensa</option>
-                    <option value="centro">Centro</option>
-                    <option value="delantero">Delantero</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div className="field is-horizontal ">
-              <div className="field-label is-normal">
-                <label className="label">Contacto de emergencia</label>
-              </div>
-              <div className="field-body">
-                <div className="field">
-                  <input
-                    className="input is-info"
-                    type="text"
-                    value={info.contacto}
-                    name="contacto"
-                    onChange={handleInfo}
-                    placeholder="Numero de emergencia"
-                  />
-                </div>
-              </div>
-            </div>
-
-            <section
-              style={{ marginLeft: '6rem' }}
-              className="is-flex is-justify-content-center">
+            <section className="is-flex is-justify-content-center">
               <button
                 className={`${BUTTON_OUTLINE_BLUE} mx-2`}
                 onClick={handleSubmit}

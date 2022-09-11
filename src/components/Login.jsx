@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { goToPathnameUrl } from "../utils/helpers";
+import '../style.css'
 
 const Login = () => {
   const [info, setInfo] = useState({
@@ -31,15 +32,7 @@ const Login = () => {
 
   return (
     <>
-      <section
-        style={{
-          margin: "0 auto",
-          display: "grid",
-          gridTemplateColumns: "repeat(3, 1fr)",
-          placeContent: "center",
-          height: "100vh",
-        }}
-      >
+      <section className="login-container">
         <div className="box p-5" style={{ gridColumn: "2" }}>
           <div className="field">
             <input

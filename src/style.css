@@ -1,3 +1,41 @@
+.app-container,
+.tournament-container,
+.form-container {
+    display: grid;
+    place-content: center;
+    height: 100vh;
+}
+
+.app-container h1 {
+    text-align: center;
+}
+
+.form-container h2 {
+    text-align: center;
+}
+
+.form-container .form-section {
+    width: 950px;
+}
+
+.login-container {
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    place-content: center;
+    height: 100vh;
+}
+
+.admin-table-container {
+    display: grid;
+    place-content: center;
+}
+
+.admin-table-container .admin-table th,
+.admin-table-container .admin-table th {
+    text-align: center;
+}
+
 .loader-wrapper {
     top: 0;
     left: 0;

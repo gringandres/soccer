@@ -13,7 +13,7 @@ const RowGenerater = ({ player, allPlayers, setAllPlayers }) => {
     index: player + 1,
   });
   const [isSubmited, setIsSubmited] = useState(false);
-  // const [probando, setProbando] = useState([])
+  const [probando, setProbando] = useState([])
 
   // useEffect(() => { // hacer con supabase
   // const getInfoFromDatabase = () => {

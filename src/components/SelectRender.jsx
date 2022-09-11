@@ -1,0 +1,28 @@
+import React from 'react'
+
+const SelectRender = ({ label, selectValue, selectName, optionValues, handleInfo }) => {
+  return (
+    <div className="field is-horizontal ">
+      <div className="field-label is-normal">
+        <label className="label">{label}</label>
+      </div>
+
+      <div className="field-body">
+        <div style={{ width: '100%' }} className="select is-info">
+          <select
+            className="container"
+            value={selectValue}
+            name={selectName}
+            onChange={handleInfo}
+            style={{ width: "100%" }}
+          >
+            <option value="empty"></option>
+            {optionValues.map(option => <option value={option}>{option}</option>)}
+          </select>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default SelectRender

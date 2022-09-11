@@ -7,20 +7,16 @@ import { goToPathnameUrl } from "./utils/helpers";
 import Form from "./components/Form";
 import Login from "./components/Login";
 import AdminInfo from "./components/AdminInfo";
+import "./style.css";
 
 const App = () => {
   return (
     <>
       <Route path='/'>
-        <div
-          style={{ display: "grid", placeContent: "center", height: "100vh" }}
-        >
+        <div className="app-container">
           <section>
-            <h1 style={{ textAlign: "center" }} className="title is-4">Team International Futbol</h1>
-            <section
-              className="box py-5 px-6"
-              style={{ gridColumn: "2", display: "flex", justifyContent: "center" }}
-            >
+            <h1 className="title is-4">Team International Futbol</h1>
+            <section className="box py-5 px-6">
               <button
                 className={BUTTON_OUTLINE_BLUE}
                 onClick={() => goToPathnameUrl("/wednesdayMatch")}
