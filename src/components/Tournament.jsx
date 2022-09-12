@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BUTTON_OUTLINE_BLUE } from "../constants/style.utils";
 import { goToPathnameUrl } from "../utils/helpers";
-import '../style.css'
+import "../style.css";
 
 const Tournament = () => {
   return (
@@ -9,13 +9,13 @@ const Tournament = () => {
       <section className="box p-4">
         <button
           className={`${BUTTON_OUTLINE_BLUE}`}
-          onClick={() => goToPathnameUrl('/tournament/form-jugador')}
+          onClick={() => goToPathnameUrl("/tournament/form-jugador")}
         >
           Jugador
         </button>
         <button
           className={`${BUTTON_OUTLINE_BLUE} ml-3`}
-          onClick={() => goToPathnameUrl('/tournament/admin-login')}
+          onClick={() => goToPathnameUrl("/tournament/admin-login")}
         >
           Admin
         </button>

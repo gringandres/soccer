@@ -1,9 +1,14 @@
 .app-container,
 .tournament-container,
+.form-success-container,
 .form-container {
     display: grid;
     place-content: center;
     height: 100vh;
+}
+
+.text-success{
+    font-size: xx-large;
 }
 
 .app-container h1 {

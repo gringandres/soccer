@@ -16,8 +16,8 @@ const AdminInfo = () => {
   useEffect(() => {
     getTournamentData()
       .then(({ tournament }) => setAllPlayerTournament(tournament))
-      .catch(error => console.log(error))
-  }, [allPlayerTournament])
+      .catch((error) => console.log(error));
+  }, [allPlayerTournament]);
 
   return (
     <div className="mt-4">

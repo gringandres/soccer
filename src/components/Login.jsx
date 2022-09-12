@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { goToPathnameUrl } from "../utils/helpers";
-import '../style.css'
+import "../style.css";
 
 const Login = () => {
   const [info, setInfo] = useState({
@@ -58,7 +58,10 @@ const Login = () => {
             <button className="button is-success" onClick={handleSubmit}>
               Login
             </button>
-            <button className="button is-success ml-3" onClick={() => goToPathnameUrl('/')}>
+            <button
+              className="button is-success ml-3"
+              onClick={() => goToPathnameUrl("/")}
+            >
               Cancel
             </button>
           </div>

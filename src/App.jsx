@@ -12,7 +12,7 @@ import "./style.css";
 const App = () => {
   return (
     <>
-      <Route path='/'>
+      <Route path="/">
         <div className="app-container">
           <section>
             <h1 className="title is-4">Team International Futbol</h1>
@@ -33,19 +33,19 @@ const App = () => {
           </section>
         </div>
       </Route>
-      <Route path='/wednesdayMatch'>
+      <Route path="/wednesdayMatch">
         <WednesdayMatch />
       </Route>
-      <Route path='/tournament'>
+      <Route path="/tournament">
         <Tournament />
       </Route>
-      <Route path='/tournament/form-jugador'>
+      <Route path="/tournament/form-jugador">
         <Form />
       </Route>
-      <Route path='/tournament/admin-login'>
+      <Route path="/tournament/admin-login">
         <Login />
       </Route>
-      <Route path='/tournament/admin-info'>
+      <Route path="/tournament/admin-info">
         <AdminInfo />
       </Route>
     </>

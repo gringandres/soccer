@@ -3,7 +3,7 @@ import {
   BUTTON_OUTLINE_BLUE,
   BUTTON_OUTLINE_RED,
 } from "../constants/style.utils";
-import vite from "../../public/vite.svg";
+import trash from "../svg/trash.svg";
 import { playerFiltered } from "../utils/helpers";
 
 const RowGenerater = ({ player, allPlayers, setAllPlayers }) => {
@@ -13,7 +13,7 @@ const RowGenerater = ({ player, allPlayers, setAllPlayers }) => {
     index: player + 1,
   });
   const [isSubmited, setIsSubmited] = useState(false);
-  const [probando, setProbando] = useState([])
+  const [probando, setProbando] = useState([]);
 
   // useEffect(() => { // hacer con supabase
   // const getInfoFromDatabase = () => {
@@ -34,10 +34,10 @@ const RowGenerater = ({ player, allPlayers, setAllPlayers }) => {
   // getInfoFromDatabase()
   // }, [])
 
-  const goalKeeperFilter = playerFiltered(allPlayers, 'arquero')
-  const defenseFilter = playerFiltered(allPlayers, 'defensa')
-  const centerFilter = playerFiltered(allPlayers, 'centro')
-  const fowardFilter = playerFiltered(allPlayers, 'delantero')
+  const goalKeeperFilter = playerFiltered(allPlayers, "arquero");
+  const defenseFilter = playerFiltered(allPlayers, "defensa");
+  const centerFilter = playerFiltered(allPlayers, "centro");
+  const fowardFilter = playerFiltered(allPlayers, "delantero");
 
   const handleInfo = (e) => {
     const { name, value } = e.target;
@@ -46,7 +46,7 @@ const RowGenerater = ({ player, allPlayers, setAllPlayers }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { name, posicion, index } = info
+    const { name, posicion, index } = info;
     if (!name && !posicion) return alert("llene los campos");
     if (posicion === "arquero" && goalKeeperFilter.length >= 2)
       return alert("Ya hay dos arqueros");
@@ -59,7 +59,7 @@ const RowGenerater = ({ player, allPlayers, setAllPlayers }) => {
 
     // const playerData = collection(database, 'WednesdayMatch') // hacer con supabase
     // addDoc(playerData, { name, posicion, index }).then(res => console.log('todo bien'))
-    getInfoFromDatabase()
+    getInfoFromDatabase();
     // setAllPlayers([...allPlayers, info]); // esto hay que cambiarlo
     setIsSubmited(true);
   };
@@ -99,7 +99,9 @@ const RowGenerater = ({ player, allPlayers, setAllPlayers }) => {
         <div className="select is-info">
           <select
             className=""
-            value={info.index === probando.index ? probando.posicion : info.posicion}
+            value={
+              info.index === probando.index ? probando.posicion : info.posicion
+            }
             name="posicion"
             onChange={handleInfo}
             disabled={isSubmited}
@@ -134,7 +136,7 @@ const RowGenerater = ({ player, allPlayers, setAllPlayers }) => {
         <th>
           <button className={BUTTON_OUTLINE_RED} onClick={handleDelete}>
             <span className="icon is-small">
-              <img src={vite}></img>
+              <img src={trash}></img>
             </span>
           </button>
         </th>

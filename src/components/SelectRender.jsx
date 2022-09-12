@@ -1,6 +1,12 @@
-import React from 'react'
+import React from "react";
 
-const SelectRender = ({ label, selectValue, selectName, optionValues, handleInfo }) => {
+const SelectRender = ({
+  label,
+  selectValue,
+  selectName,
+  optionValues,
+  handleInfo,
+}) => {
   return (
     <div className="field is-horizontal ">
       <div className="field-label is-normal">
@@ -8,7 +14,7 @@ const SelectRender = ({ label, selectValue, selectName, optionValues, handleInfo
       </div>
 
       <div className="field-body">
-        <div style={{ width: '100%' }} className="select is-info">
+        <div style={{ width: "100%" }} className="select is-info">
           <select
             className="container"
             value={selectValue}
@@ -17,12 +23,16 @@ const SelectRender = ({ label, selectValue, selectName, optionValues, handleInfo
             style={{ width: "100%" }}
           >
             <option value="empty"></option>
-            {optionValues.map(option => <option value={option}>{option}</option>)}
+            {optionValues.map((option, index) => (
+              <option key={index} value={option}>
+                {option}
+              </option>
+            ))}
           </select>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SelectRender
+export default SelectRender;

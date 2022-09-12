@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Table from "./Table";
 import { BUTTON_OUTLINE_BLUE } from "../constants/style.utils";
-import { goToPathnameUrl, playerFiltered } from '../utils/helpers'
+import { goToPathnameUrl, playerFiltered } from "../utils/helpers";
 
 const WednesdayMatch = () => {
   const [allPlayers, setAllPlayers] = useState([]);
@@ -30,10 +30,10 @@ const WednesdayMatch = () => {
       const team1 = [];
       const team2 = [];
 
-      const goalKeeperFilter = playerFiltered(shuffledTeam, 'arquero')
-      const defenseFilter = playerFiltered(shuffledTeam, 'defensa')
-      const centerFilter = playerFiltered(shuffledTeam, 'centro')
-      const fowardFilter = playerFiltered(shuffledTeam, 'delantero')
+      const goalKeeperFilter = playerFiltered(shuffledTeam, "arquero");
+      const defenseFilter = playerFiltered(shuffledTeam, "defensa");
+      const centerFilter = playerFiltered(shuffledTeam, "centro");
+      const fowardFilter = playerFiltered(shuffledTeam, "delantero");
 
       team1.push(
         goalKeeperFilter.slice(0, 1),
@@ -94,7 +94,7 @@ const WednesdayMatch = () => {
         </button>
         <button
           className={`${BUTTON_OUTLINE_BLUE} mx-2`}
-          onClick={() => goToPathnameUrl('/')}
+          onClick={() => goToPathnameUrl("/")}
         >
           Cancel
         </button>

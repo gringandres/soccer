@@ -4,17 +4,29 @@ import "../style.css";
 
 const RowGenerater = ({ index, player }) => {
   return (
-    <tr className={addStyles(index, 'has-background-grey')}>
+    <tr className={addStyles(index, "has-background-grey")}>
       <th className={addStyles(index, WHITE_TEXT)}>{index + 1}</th>
-      <th className={addStyles(index, WHITE_TEXT)}>{player.name.toLowerCase()}</th>
+      <th className={addStyles(index, WHITE_TEXT)}>
+        {player.name.toLowerCase()}
+      </th>
       <th className={addStyles(index, WHITE_TEXT)}>{player.cc}</th>
-      <th className={addStyles(index, WHITE_TEXT)}>{player.eps.toLowerCase()}</th>
-      <th className={addStyles(index, WHITE_TEXT)}>{player.ciudad.toLowerCase()}</th>
-      <th className={addStyles(index, WHITE_TEXT)}>{player.camiseta.toUpperCase()}</th>
-      <th className={addStyles(index, WHITE_TEXT)}>{player.pantaloneta.toUpperCase()}</th>
-      <th className={addStyles(index, WHITE_TEXT)}>{player.posicion.toLowerCase()}</th>
+      <th className={addStyles(index, WHITE_TEXT)}>
+        {player.eps.toLowerCase()}
+      </th>
+      <th className={addStyles(index, WHITE_TEXT)}>
+        {player.ciudad.toLowerCase()}
+      </th>
+      <th className={addStyles(index, WHITE_TEXT)}>
+        {player.camiseta.toUpperCase()}
+      </th>
+      <th className={addStyles(index, WHITE_TEXT)}>
+        {player.pantaloneta.toUpperCase()}
+      </th>
+      <th className={addStyles(index, WHITE_TEXT)}>
+        {player.posicion.toLowerCase()}
+      </th>
       <th className={addStyles(index, WHITE_TEXT)}>{player.contacto}</th>
-    </tr >
+    </tr>
   );
 };
 
@@ -48,9 +60,8 @@ const AdminTable = ({ allPlayerTournament }) => {
         <div className="loader-wrapper">
           <div className="loader is-loading"></div>
         </div>
-      )
-      }
-    </section >
+      )}
+    </section>
   );
 };
 
