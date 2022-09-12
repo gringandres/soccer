@@ -12,7 +12,7 @@ import "./style.css";
 const App = () => {
   return (
     <>
-      <Route path="/">
+      {/* <Route path="/">
         <div className="app-container">
           <section>
             <h1 className="title is-4">Team International Futbol</h1>
@@ -32,12 +32,12 @@ const App = () => {
             </section>
           </section>
         </div>
+      </Route> */}
+      <Route path="/">
+        <Tournament />
       </Route>
       <Route path="/wednesdayMatch">
         <WednesdayMatch />
-      </Route>
-      <Route path="/tournament">
-        <Tournament />
       </Route>
       <Route path="/tournament/form-jugador">
         <Form />

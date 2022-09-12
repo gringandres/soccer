@@ -6,7 +6,8 @@ import "../style.css";
 const Tournament = () => {
   return (
     <div className="tournament-container">
-      <section className="box p-4">
+      <h1 className="title is-4">Team International Tournament</h1>
+      <section className="box p-4 is-flex is-justify-content-center">
         <button
           className={`${BUTTON_OUTLINE_BLUE}`}
           onClick={() => goToPathnameUrl("/tournament/form-jugador")}

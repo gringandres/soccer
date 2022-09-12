@@ -69,7 +69,7 @@ const Form = () => {
       {!submited ? (
         <div className="form-container">
           <h2 className="title is-3">
-            LLENA ESTE FORMULARIO PARA LA INSCRIPCION
+            LLENA ESTE FORMULARIO PARA LA INSCRIPCIÓN
           </h2>
           <div>
             <section className="form-section box p-5">
@@ -94,10 +94,10 @@ const Form = () => {
                 />
               ))}
               <InputRender
-                label="Contacto de emergencia"
+                label="Contacto de Emergencia"
                 inputValue={info.contacto}
                 inputName="contacto"
-                placeholder="Numero de emergencia"
+                placeholder="Número de emergencia"
                 handleInfo={handleInfo}
                 type="number"
               />
@@ -111,7 +111,7 @@ const Form = () => {
                 </button>
                 <button
                   className={`${BUTTON_OUTLINE_BLUE} mx-2`}
-                  onClick={() => goToPathnameUrl("/tournament")}
+                  onClick={() => goToPathnameUrl("/")}
                 >
                   Cancel
                 </button>

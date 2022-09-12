@@ -12,7 +12,7 @@ export const selectObject = [
     optionValues: ["S", "M", "L", "XL"],
   },
   {
-    label: "Posicion de Juego",
+    label: "Posición de Juego",
     selectValue: "posicion",
     selectName: "posicion",
     optionValues: ["Arquero", "Defensa", "Centro", "Delantero"],
@@ -39,9 +39,9 @@ export const inputObject = [
     placeholder: "EPS",
   },
   {
-    label: "ciudad",
+    label: "Ciudad",
     inputValue: "ciudad",
     inputName: "ciudad",
-    placeholder: "ciudad (Solo colombia)",
+    placeholder: "Ciudad (Solo colombia)",
   },
 ];

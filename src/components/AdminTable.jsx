@@ -6,9 +6,7 @@ const RowGenerater = ({ index, player }) => {
   return (
     <tr className={addStyles(index, "has-background-grey")}>
       <th className={addStyles(index, WHITE_TEXT)}>{index + 1}</th>
-      <th className={addStyles(index, WHITE_TEXT)}>
-        {player.name.toLowerCase()}
-      </th>
+      <th className={addStyles(index, WHITE_TEXT)}>{player.name}</th>
       <th className={addStyles(index, WHITE_TEXT)}>{player.cc}</th>
       <th className={addStyles(index, WHITE_TEXT)}>
         {player.eps.toLowerCase()}
