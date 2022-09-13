@@ -6,8 +6,9 @@ const RowGenerater = ({ index, player }) => {
   return (
     <tr className={addStyles(index, "has-background-grey")}>
       <th className={addStyles(index, WHITE_TEXT)}>{index + 1}</th>
-      <th className={addStyles(index, WHITE_TEXT)}>{player.name}</th>
+      <th className={addStyles(index, WHITE_TEXT)}>{player.idType}</th>
       <th className={addStyles(index, WHITE_TEXT)}>{player.cc}</th>
+      <th className={addStyles(index, WHITE_TEXT)}>{player.name}</th>
       <th className={addStyles(index, WHITE_TEXT)}>
         {player.eps.toLowerCase()}
       </th>
@@ -38,8 +39,9 @@ const AdminTable = ({ allPlayerTournament }) => {
               <th className={WHITE_TEXT}>
                 <abbr title="Numero">N°</abbr>
               </th>
-              <th className={WHITE_TEXT}>Nombre Completo</th>
+              <th className={WHITE_TEXT}>Tipo de Identificacion</th>
               <th className={WHITE_TEXT}>Identificacion</th>
+              <th className={WHITE_TEXT}>Nombre Completo</th>
               <th className={WHITE_TEXT}>EPS</th>
               <th className={WHITE_TEXT}>Ciudad</th>
               <th className={WHITE_TEXT}>Talla Camisa</th>

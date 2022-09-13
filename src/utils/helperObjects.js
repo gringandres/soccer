@@ -1,36 +1,36 @@
 export const selectObject = [
   {
-    label: "Talla Camiseta",
+    label: "Shirt size",
     selectValue: "camiseta",
     selectName: "camiseta",
-    optionValues: ["S", "M", "L", "XL"],
+    optionValues: ["S", "M", "L", "XL", "XXL", "XXXL"],
   },
   {
-    label: "Talla Pantaloneta",
+    label: "Shorts size",
     selectValue: "pantaloneta",
     selectName: "pantaloneta",
-    optionValues: ["S", "M", "L", "XL"],
+    optionValues: ["S", "M", "L", "XL", "XXL", "XXXL"],
   },
   {
-    label: "Posición de Juego",
+    label: "Player posicion",
     selectValue: "posicion",
     selectName: "posicion",
-    optionValues: ["Arquero", "Defensa", "Centro", "Delantero"],
+    optionValues: ["GoalKeeper", "Defense", "Center", "Foward"],
   },
 ];
 
 export const inputObject = [
   {
-    label: "Nombre Completo",
-    inputValue: "name",
-    inputName: "name",
-    placeholder: "Nombre",
-  },
-  {
-    label: "ID",
+    label: "Identification",
     inputValue: "id",
     inputName: "id",
-    placeholder: "ID (Passport o cc)",
+    placeholder: "Number",
+  },
+  {
+    label: "Full Name",
+    inputValue: "name",
+    inputName: "name",
+    placeholder: "First and Last name",
   },
   {
     label: "EPS",
@@ -39,9 +39,9 @@ export const inputObject = [
     placeholder: "EPS",
   },
   {
-    label: "Ciudad",
+    label: "City",
     inputValue: "ciudad",
     inputName: "ciudad",
-    placeholder: "Ciudad (Solo colombia)",
+    placeholder: "City (Only colombia)",
   },
 ];

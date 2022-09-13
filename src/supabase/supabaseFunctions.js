@@ -17,24 +17,24 @@ export const setTournamentData = async ({
   pantaloneta,
   posicion,
   contacto,
+  idType,
 }) => {
-  const { data, error } = await supabase
-    .from("tournament")
-    .insert(
-      [
-        {
-          name,
-          cc: id,
-          eps,
-          ciudad,
-          camiseta,
-          pantaloneta,
-          posicion,
-          contacto,
-        },
-      ],
-      { returning: "minimal" }
-    );
+  const { data, error } = await supabase.from("tournament").insert(
+    [
+      {
+        name,
+        cc: id,
+        eps,
+        ciudad,
+        camiseta,
+        pantaloneta,
+        posicion,
+        contacto,
+        idType,
+      },
+    ],
+    { returning: "minimal" }
+  );
 
   return { data, error };
 };

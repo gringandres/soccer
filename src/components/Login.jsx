@@ -32,7 +32,7 @@ const Login = () => {
 
   return (
     <>
-      <section className="login-container">
+      <section className="login-container background-banner1">
         <div className="box p-5" style={{ gridColumn: "2" }}>
           <div className="field">
             <input
@@ -55,11 +55,11 @@ const Login = () => {
             />
           </div>
           <div className="field is-flex is-justify-content-center mt-5">
-            <button className="button is-success" onClick={handleSubmit}>
+            <button className="button button-team-blue" onClick={handleSubmit}>
               Login
             </button>
             <button
-              className="button is-success ml-3"
+              className="button button-team-blue ml-3"
               onClick={() => goToPathnameUrl("/")}
             >
               Cancel

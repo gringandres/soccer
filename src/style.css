@@ -2,61 +2,93 @@
 .tournament-container,
 .form-success-container,
 .form-container {
-    display: grid;
-    place-content: center;
-    height: 100vh;
+  display: grid;
+  place-content: center;
+  height: 100vh;
 }
 
-.text-success{
-    font-size: xx-large;
+.background-banner1 {
+  background-image: url("./svg/banner1.jpeg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.background-banner2 {
+  background-image: url("./svg/banner2.jpeg");
+  background-position: center;
+  background-size: 250%;
+  background-repeat: no-repeat;
+}
+
+.text-success {
+  font-size: xx-large;
 }
 
 .app-container h1 {
-    text-align: center;
+  text-align: center;
 }
 
 .form-container h2 {
-    text-align: center;
+  text-align: center;
 }
 
 .form-container .form-section {
-    width: 950px;
+  width: 950px;
 }
 
 .login-container {
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    place-content: center;
-    height: 100vh;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  place-content: center;
+  height: 100vh;
 }
 
 .admin-table-container {
-    display: grid;
-    place-content: center;
+  display: grid;
+  place-content: center;
 }
 
 .admin-table-container .admin-table th,
 .admin-table-container .admin-table th {
-    text-align: center;
+  text-align: center;
 }
 
 .loader-wrapper {
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    opacity: 1;
-    z-index: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 6px;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 1;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
 }
 
 .loader-wrapper .loader {
-    height: 200px;
-    width: 200px;
-    border-color: blue;
-    border-right-color: transparent;
+  height: 200px;
+  width: 200px;
+  border-color: blue;
+  border-right-color: transparent;
 }
+
+.team-title {
+  color: #243747;
+}
+.button-team-blue {
+  border: 1px solid #36a1ff !important;
+  color: #36a1ff !important;
+  transition: all 0.3s ease-in;
+}
+
+.button-team-blue:hover {
+  border: 1px solid #36a1ff !important;
+  color: white !important;
+  background-color: #36a1ff !important;
+}
+/* .team-title span {
+  color: #5ce706;
+} */
