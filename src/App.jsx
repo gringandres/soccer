@@ -35,9 +35,9 @@ const App = () => {
       <Route path="/">
         <Tournament />
       </Route>
-      {/* <Route path="/wednesdayMatch">
+      <Route path="/wednesdayMatch">
         <WednesdayMatch />
-      </Route> */}
+      </Route>
       <Route path="/tournament/form-jugador">
         <Form />
       </Route>

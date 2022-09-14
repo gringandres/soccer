@@ -7,17 +7,17 @@ const AdminInfo = () => {
   const [allPlayerTournament, setAllPlayerTournament] = useState([]);
   const user = sessionStorage.getItem("token");
 
-  // useEffect(() => {
-  //   if (!user) {
-  //     window.location.replace("/");
-  //   }
-  // }, [user]);
+  useEffect(() => {
+    if (!user) {
+      window.location.replace("/");
+    }
+  }, [user]);
 
-  // useEffect(() => {
-  //   getTournamentData()
-  //     .then(({ tournament }) => setAllPlayerTournament(tournament))
-  //     .catch((error) => console.log(error));
-  // }, [allPlayerTournament]);
+  useEffect(() => {
+    getTournamentData()
+      .then(({ tournament }) => setAllPlayerTournament(tournament))
+      .catch((error) => console.log(error));
+  }, [allPlayerTournament]);
 
   return (
     <div className="mt-4">
