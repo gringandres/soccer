@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { BUTTON_OUTLINE_BLUE } from "../constants/style.utils";
 import { goToPathnameUrl } from "../utils/helpers";
-import {
-  setTournamentData,
-  getTournamentData,
-} from "../supabase/supabaseFunctions";
+// import {
+//   setTournamentData,
+//   getTournamentData,
+// } from "../supabase/supabaseFunctions";
 import { inputObject, selectObject } from "../utils/helperObjects";
 import SelectRender from "./SelectRender";
 import InputRender from "./InputRender";
@@ -53,19 +53,20 @@ const Form = () => {
       posicion &&
       contacto
     ) {
-      getTournamentData()
-        .then(({ tournament }) => {
-          const idFilter = tournament.find(
-            (idTournament) => idTournament.cc === id
-          );
-          if (idFilter) {
-            setSubmited(true);
-          } else {
-            setTournamentData(info);
-            setSubmited(true);
-          }
-        })
-        .catch((error) => console.log(error));
+      // getTournamentData()
+      //   .then(({ tournament }) => {
+      //     const idFilter = tournament.find(
+      //       (idTournament) => idTournament.cc === id
+      //     );
+      //     if (idFilter) {
+      //       setSubmited(true);
+      //     } else {
+      //       setTournamentData(info);
+      //       setSubmited(true);
+      //     }
+      //   })
+      //   .catch((error) => console.log(error));
+      console.log("hi");
     } else {
       alert("LLenar todos los campos");
     }

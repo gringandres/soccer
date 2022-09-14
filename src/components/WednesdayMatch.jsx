@@ -23,57 +23,57 @@ const WednesdayMatch = () => {
   const [team1, setTeam1] = useState([]);
   const [team2, setTeam2] = useState([]);
 
-  const handleGenerateTeams = (e) => {
-    e.preventDefault();
-    if (allPlayers.length === 14) {
-      const shuffledTeam = shuffle(allPlayers);
-      const team1 = [];
-      const team2 = [];
+  // const handleGenerateTeams = (e) => {
+  //   e.preventDefault();
+  //   if (allPlayers.length === 14) {
+  //     const shuffledTeam = shuffle(allPlayers);
+  //     const team1 = [];
+  //     const team2 = [];
 
-      const goalKeeperFilter = playerFiltered(shuffledTeam, "arquero");
-      const defenseFilter = playerFiltered(shuffledTeam, "defensa");
-      const centerFilter = playerFiltered(shuffledTeam, "centro");
-      const fowardFilter = playerFiltered(shuffledTeam, "delantero");
+  //     const goalKeeperFilter = playerFiltered(shuffledTeam, "arquero");
+  //     const defenseFilter = playerFiltered(shuffledTeam, "defensa");
+  //     const centerFilter = playerFiltered(shuffledTeam, "centro");
+  //     const fowardFilter = playerFiltered(shuffledTeam, "delantero");
 
-      team1.push(
-        goalKeeperFilter.slice(0, 1),
-        defenseFilter.slice(0, 2),
-        centerFilter.slice(0, 2),
-        fowardFilter.slice(0, 2)
-      );
-      team2.push(
-        goalKeeperFilter.slice(1, 2),
-        defenseFilter.slice(2, 4),
-        centerFilter.slice(2, 4),
-        fowardFilter.slice(2, 4)
-      );
+  //     team1.push(
+  //       goalKeeperFilter.slice(0, 1),
+  //       defenseFilter.slice(0, 2),
+  //       centerFilter.slice(0, 2),
+  //       fowardFilter.slice(0, 2)
+  //     );
+  //     team2.push(
+  //       goalKeeperFilter.slice(1, 2),
+  //       defenseFilter.slice(2, 4),
+  //       centerFilter.slice(2, 4),
+  //       fowardFilter.slice(2, 4)
+  //     );
 
-      setTeam1(team1.flat());
-      setTeam2(team2.flat());
-    } else {
-      return alert("Llenar todos los cupos");
-    }
-  };
-  const shuffle = (array) => {
-    // debugger;
-    let currentIndex = array.length,
-      randomIndex;
+  //     setTeam1(team1.flat());
+  //     setTeam2(team2.flat());
+  //   } else {
+  //     return alert("Llenar todos los cupos");
+  //   }
+  // };
+  // const shuffle = (array) => {
+  //   // debugger;
+  //   let currentIndex = array.length,
+  //     randomIndex;
 
-    // While there remain elements to shuffle.
-    while (currentIndex != 0) {
-      // Pick a remaining element.
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex--;
+  //   // While there remain elements to shuffle.
+  //   while (currentIndex != 0) {
+  //     // Pick a remaining element.
+  //     randomIndex = Math.floor(Math.random() * currentIndex);
+  //     currentIndex--;
 
-      // And swap it with the current element.
-      [array[currentIndex], array[randomIndex]] = [
-        array[randomIndex],
-        array[currentIndex],
-      ];
-    }
+  //     // And swap it with the current element.
+  //     [array[currentIndex], array[randomIndex]] = [
+  //       array[randomIndex],
+  //       array[currentIndex],
+  //     ];
+  //   }
 
-    return array;
-  };
+  //   return array;
+  // };
 
   return (
     <section>
