@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import WednesdayMatch from "./components/WednesdayMatch";
 import Tournament from "./components/Tournament";
 import { BUTTON_OUTLINE_BLUE } from "./constants/style.utils";
