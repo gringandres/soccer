@@ -51,7 +51,8 @@
 }
 
 .admin-table-container .admin-table th,
-.admin-table-container .admin-table th {
+.admin-table-container .admin-table th,
+.filter-title {
   text-align: center;
 }
 
@@ -78,6 +79,7 @@
 .team-title {
   color: #243747;
 }
+
 .button-team-blue {
   border: 1px solid #36a1ff !important;
   color: #36a1ff !important;
@@ -89,6 +91,50 @@
   color: white !important;
   background-color: #36a1ff !important;
 }
+
 /* .team-title span {
   color: #5ce706;
 } */
+
+.no-results-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.filter-input {
+  padding: 8px;
+  width: 230px;
+  border-radius: 10px;
+  border: 1px solid #36a1ff;
+}
+
+.filter-input:focus {
+  outline: none;
+  color: #36a1ff;
+}
+
+
+.filters-popup-container {
+  display: grid;
+  place-content: center;
+  position: absolute;
+  inset: 0;
+}
+
+.filters-popup {
+  width: 550px;
+  height: min-content;
+  border-radius: 1rem;
+  background-color: #36a1ff;
+  padding: 1rem 1.5rem 2rem;
+}
+
+.filter-popup-close {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}

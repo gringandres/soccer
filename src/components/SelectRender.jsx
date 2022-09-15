@@ -24,7 +24,7 @@ const SelectRender = ({
           >
             <option value="empty"></option>
             {optionValues.map((option, index) => (
-              <option key={index} value={option}>
+              <option key={index} value={option.toLowerCase()}>
                 {option}
               </option>
             ))}
