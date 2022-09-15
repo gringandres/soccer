@@ -1,21 +1,27 @@
+import {
+  optionCamiseta,
+  optionPantaloneta,
+  optionPosicion,
+} from "../constants/constants";
+
 export const selectObject = [
   {
     label: "Shirt size",
     selectValue: "camiseta",
     selectName: "camiseta",
-    optionValues: ["S", "M", "L", "XL", "XXL", "XXXL"],
+    optionValues: optionCamiseta,
   },
   {
     label: "Shorts size",
     selectValue: "pantaloneta",
     selectName: "pantaloneta",
-    optionValues: ["S", "M", "L", "XL", "XXL", "XXXL"],
+    optionValues: optionPantaloneta,
   },
   {
     label: "Player posicion",
     selectValue: "posicion",
     selectName: "posicion",
-    optionValues: ["GoalKeeper", "Defense", "Center", "Foward"],
+    optionValues: optionPosicion,
   },
 ];
 

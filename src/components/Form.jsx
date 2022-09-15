@@ -9,6 +9,7 @@ import { inputObject, selectObject } from "../utils/helperObjects";
 import SelectRender from "./SelectRender";
 import InputRender from "./InputRender";
 import "../style.css";
+import { optionIdtype } from "../constants/constants";
 
 const Form = () => {
   const [info, setInfo] = useState({
@@ -84,7 +85,7 @@ const Form = () => {
                 label="Identification Type"
                 selectValue={info.idType}
                 selectName="idType"
-                optionValues={["CC", "Passport"]}
+                optionValues={optionIdtype}
                 handleInfo={handleInfo}
               />
               {inputObject.map((input) => (
@@ -111,9 +112,9 @@ const Form = () => {
                 label="Emergency Contact"
                 inputValue={info.contacto}
                 inputName="contacto"
-                placeholder="Emergency Contact"
+                placeholder="Emergency Name and Number"
                 handleInfo={handleInfo}
-                type="number"
+                type="text"
               />
 
               <section className="is-flex is-justify-content-center">

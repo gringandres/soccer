@@ -115,7 +115,6 @@
   color: #36a1ff;
 }
 
-
 .filters-popup-container {
   display: grid;
   place-content: center;
@@ -126,8 +125,9 @@
 .filters-popup {
   width: 550px;
   height: min-content;
+  border: 1px solid grey;
   border-radius: 1rem;
-  background-color: #36a1ff;
+  background-color: white;
   padding: 1rem 1.5rem 2rem;
 }
 
