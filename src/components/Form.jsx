@@ -1,22 +1,23 @@
 import React, { useState } from "react";
 import { BUTTON_OUTLINE_BLUE } from "../constants/style.utils";
 import { goToPathnameUrl } from "../utils/helpers";
-import {
-  setTournamentData,
-  getTournamentData,
-} from "../supabase/supabaseFunctions";
+// import {
+//   setTournamentData,
+//   getTournamentData,
+// } from "../supabase/supabaseFunctions";
 import { inputObject, selectObject } from "../utils/helperObjects";
 import SelectRender from "./SelectRender";
 import InputRender from "./InputRender";
 import "../style.css";
 import { optionIdtype } from "../constants/constants";
 import bird from "../svg/teamIcon2.png";
+import { supabasePostData, fetchSupabase } from "../supabase/supabase";
 
 const Form = () => {
   const [info, setInfo] = useState({
     idType: "",
     name: "",
-    id: "",
+    cc: "",
     eps: "",
     ciudad: "",
     camiseta: "",
@@ -36,7 +37,7 @@ const Form = () => {
     const {
       idType,
       name: username,
-      id,
+      cc,
       eps,
       ciudad,
       camiseta,
@@ -47,7 +48,7 @@ const Form = () => {
     if (
       idType &&
       username &&
-      id &&
+      cc &&
       eps &&
       ciudad &&
       camiseta &&
@@ -55,15 +56,16 @@ const Form = () => {
       posicion &&
       contacto
     ) {
-      getTournamentData()
-        .then(({ tournament }) => {
-          const idFilter = tournament.find(
-            (idTournament) => idTournament.cc === id
+      fetchSupabase()
+        .then(res => res.json())
+        .then(res => {
+          const idFilter = res.find(
+            (idTournament) => idTournament.cc === cc
           );
           if (idFilter) {
-            setSubmited(true);
+            setSubmited(true)
           } else {
-            setTournamentData(info);
+            supabasePostData(info)
             setSubmited(true);
           }
         })

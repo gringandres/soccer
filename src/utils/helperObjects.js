@@ -28,8 +28,8 @@ export const selectObject = [
 export const inputObject = [
   {
     label: "Identification",
-    inputValue: "id",
-    inputName: "id",
+    inputValue: "cc",
+    inputName: "cc",
     placeholder: "Number",
   },
   {
