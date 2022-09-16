@@ -5,7 +5,7 @@ import "../style.css";
 
 const Tournament = () => {
   return (
-    <div className="tournament-container background-banner1">
+    <div className="tournament-container background-banner2">
       <h1 className="title is-4 team-title">Team International Tournament</h1>
       <section className="box p-4 is-flex is-justify-content-center">
         <button
