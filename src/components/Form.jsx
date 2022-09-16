@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import { BUTTON_OUTLINE_BLUE } from "../constants/style.utils";
 import { goToPathnameUrl } from "../utils/helpers";
-// import {
-//   setTournamentData,
-//   getTournamentData,
-// } from "../supabase/supabaseFunctions";
 import { inputObject, selectObject } from "../utils/helperObjects";
 import SelectRender from "./SelectRender";
 import InputRender from "./InputRender";
@@ -57,15 +53,13 @@ const Form = () => {
       contacto
     ) {
       fetchSupabase()
-        .then(res => res.json())
-        .then(res => {
-          const idFilter = res.find(
-            (idTournament) => idTournament.cc === cc
-          );
+        .then((res) => res.json())
+        .then((res) => {
+          const idFilter = res.find((idTournament) => idTournament.cc === cc);
           if (idFilter) {
-            setSubmited(true)
+            setSubmited(true);
           } else {
-            supabasePostData(info)
+            supabasePostData(info);
             setSubmited(true);
           }
         })
