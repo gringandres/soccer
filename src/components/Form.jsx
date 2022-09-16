@@ -78,7 +78,7 @@ const Form = () => {
       {!submited ? (
         <div className="form-container">
           <h2 className="title is-3 team-title">
-            LLENA ESTE FORMULARIO PARA LA INSCRIPCIÓN
+            FILL THE FORM FOR THE INSCRIPTION
           </h2>
           <div>
             <section className="form-section box p-5">
