@@ -1,9 +1,20 @@
+* {
+  font-family: sans-serif;
+}
+
 .app-container,
 .tournament-container,
-.form-success-container,
 .form-container {
   display: grid;
   place-content: center;
+  height: 100vh;
+}
+.form-success {
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 8vh;
   height: 100vh;
 }
 
@@ -15,10 +26,15 @@
 }
 
 .background-banner2 {
-  background-image: url("./svg/banner2.jpeg");
+  background-image: url("./svg/banner3.jpeg");
   background-position: center;
-  background-size: 250%;
+  background-size: 102%;
   background-repeat: no-repeat;
+}
+
+.team-bird {
+  height: 300px;
+  margin-right: 30vh;
 }
 
 .text-success {

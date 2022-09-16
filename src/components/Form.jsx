@@ -10,6 +10,7 @@ import SelectRender from "./SelectRender";
 import InputRender from "./InputRender";
 import "../style.css";
 import { optionIdtype } from "../constants/constants";
+import bird from "../svg/teamIcon2.png";
 
 const Form = () => {
   const [info, setInfo] = useState({
@@ -135,11 +136,14 @@ const Form = () => {
           </div>
         </div>
       ) : (
-        <div className="form-success-container">
-          <article className="message is-primary text-success">
-            <div className="message-body">You Have Scored a Goal!</div>
-          </article>
-        </div>
+        <>
+          <div className="form-success">
+            <img src={bird} className="team-bird" />
+            <article className="message is-primary text-success">
+              <div className="message-body">You Have Scored a Goal!</div>
+            </article>
+          </div>
+        </>
       )}
     </section>
   );

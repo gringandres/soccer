@@ -1,5 +1,5 @@
 import React from "react";
-
+import { IDTYPE } from "../constants/constants";
 const SelectRender = ({
   label,
   selectValue,
@@ -24,7 +24,10 @@ const SelectRender = ({
           >
             <option value="empty"></option>
             {optionValues.map((option, index) => (
-              <option key={index} value={option.toLowerCase()}>
+              <option
+                key={index}
+                value={option === IDTYPE ? IDTYPE : option.toLowerCase()}
+              >
                 {option}
               </option>
             ))}

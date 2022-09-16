@@ -21,8 +21,8 @@ const Filters = ({
   setNoResults,
 }) => {
   const [valueFilter, setValueFilter] = useState({
-    filterValue: "",
     filterSearch: "",
+    filterValue: "",
   });
 
   const [selectValuesToShow, setSelectValuesToShow] = useState([]);
@@ -49,6 +49,10 @@ const Filters = ({
       default:
         setSelectValuesToShow([]);
     }
+  }, [valueFilter.filterSearch]);
+
+  useEffect(() => {
+    setValueFilter({ ...valueFilter, filterValue: "" });
   }, [valueFilter.filterSearch]);
 
   const handleClickFilter = () => {
