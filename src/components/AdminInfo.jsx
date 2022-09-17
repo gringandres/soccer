@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import AdminTable from "./AdminTable";
 import Filters from "./Filters";
 import { BUTTON_OUTLINE_BLUE } from "../constants/style.utils";
-// import { getTournamentData } from "../supabase/supabaseFunctions";
 import { fetchSupabase } from "../supabase/supabase";
+import { NewPlayerContext } from "../provider/NewPlayerProvider";
 
 const AdminInfo = () => {
   const [allPlayerTournament, setAllPlayerTournament] = useState([]);
@@ -11,6 +11,7 @@ const AdminInfo = () => {
   const [noResults, setNoResults] = useState(false)
   const [popup, setPopup] = useState(false);
   const user = sessionStorage.getItem("token");
+  const { isNewPlayer } = useContext(NewPlayerContext)
 
   useEffect(() => {
     if (!user) {
@@ -18,20 +19,16 @@ const AdminInfo = () => {
     }
   }, [user]);
 
-  // useEffect(() => {
-  //   getTournamentData()
-  //     .then(({ tournament }) => setAllPlayerTournament(tournament))
-  //     .catch((error) => console.log(error));
-  // }, [allPlayerTournament]);
-
   useEffect(() => {
     fetchSupabase()
       .then(res => res.json())
       .then(tournament => setAllPlayerTournament(tournament))
-  }, [allPlayerTournament]);
+  }, [isNewPlayer]);
+
+  console.log(isNewPlayer, 'desde admin');
 
   return (
-    <div className="mt-4">
+    <div className="my-5">
       <div className="is-flex is-justify-content-flex-end mr-4">
         <button
           className={BUTTON_OUTLINE_BLUE}

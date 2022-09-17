@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { BUTTON_OUTLINE_BLUE } from "../constants/style.utils";
 import { goToPathnameUrl } from "../utils/helpers";
 import { inputObject, selectObject } from "../utils/helperObjects";
@@ -8,6 +8,7 @@ import "../style.css";
 import { optionIdtype } from "../constants/constants";
 import bird from "../svg/teamIcon2.png";
 import { supabasePostData, fetchSupabase } from "../supabase/supabase";
+import { NewPlayerContext } from "../provider/NewPlayerProvider";
 
 const Form = () => {
   const [info, setInfo] = useState({
@@ -22,6 +23,7 @@ const Form = () => {
     contacto: "",
   });
   const [submited, setSubmited] = useState(false);
+  const { setIsNewPlayer } = useContext(NewPlayerContext)
 
   const handleInfo = (e) => {
     const { name, value } = e.target;
@@ -60,7 +62,9 @@ const Form = () => {
             setSubmited(true);
           } else {
             supabasePostData(info);
+            setIsNewPlayer(true)
             setSubmited(true);
+            setTimeout(() => setIsNewPlayer(false), 0);
           }
         })
         .catch((error) => console.log(error));

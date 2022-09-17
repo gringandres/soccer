@@ -1,16 +1,17 @@
 import WednesdayMatch from "./components/WednesdayMatch";
 import Tournament from "./components/Tournament";
-import { BUTTON_OUTLINE_BLUE } from "./constants/style.utils";
 import Route from "./utils/Route";
-import { goToPathnameUrl } from "./utils/helpers";
 import Form from "./components/Form";
-import Login from "./components/Login";
 import AdminInfo from "./components/AdminInfo";
+import Login from "./components/Login";
+// import { BUTTON_OUTLINE_BLUE } from "./constants/style.utils";
+// import { goToPathnameUrl } from "./utils/helpers";
 import "./style.css";
+import NewPlayerProvider from './provider/NewPlayerProvider'
 
 const App = () => {
   return (
-    <>
+    <NewPlayerProvider>
       {/* <Route path="/">
         <div className="app-container">
           <section>
@@ -47,7 +48,7 @@ const App = () => {
       <Route path="/tournament/admin-info">
         <AdminInfo />
       </Route>
-    </>
+    </NewPlayerProvider>
   );
 };
 
