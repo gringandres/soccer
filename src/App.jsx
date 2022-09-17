@@ -7,11 +7,10 @@ import Login from "./components/Login";
 // import { BUTTON_OUTLINE_BLUE } from "./constants/style.utils";
 // import { goToPathnameUrl } from "./utils/helpers";
 import "./style.css";
-import NewPlayerProvider from './provider/NewPlayerProvider'
 
 const App = () => {
   return (
-    <NewPlayerProvider>
+    <>
       {/* <Route path="/">
         <div className="app-container">
           <section>
@@ -48,7 +47,7 @@ const App = () => {
       <Route path="/tournament/admin-info">
         <AdminInfo />
       </Route>
-    </NewPlayerProvider>
+    </>
   );
 };
 

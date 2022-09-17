@@ -1,9 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import AdminTable from "./AdminTable";
 import Filters from "./Filters";
 import { BUTTON_OUTLINE_BLUE } from "../constants/style.utils";
 import { fetchSupabase } from "../supabase/supabase";
-import { NewPlayerContext } from "../provider/NewPlayerProvider";
 
 const AdminInfo = () => {
   const [allPlayerTournament, setAllPlayerTournament] = useState([]);
@@ -11,7 +10,6 @@ const AdminInfo = () => {
   const [noResults, setNoResults] = useState(false)
   const [popup, setPopup] = useState(false);
   const user = sessionStorage.getItem("token");
-  const { isNewPlayer } = useContext(NewPlayerContext)
 
   useEffect(() => {
     if (!user) {
@@ -23,9 +21,7 @@ const AdminInfo = () => {
     fetchSupabase()
       .then(res => res.json())
       .then(tournament => setAllPlayerTournament(tournament))
-  }, [isNewPlayer]);
-
-  console.log(isNewPlayer, 'desde admin');
+  }, [allPlayerTournament]);
 
   return (
     <div className="my-5">
