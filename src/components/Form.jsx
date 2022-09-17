@@ -64,7 +64,7 @@ const Form = () => {
             supabasePostData(info);
             setIsNewPlayer(true)
             setSubmited(true);
-            setTimeout(() => setIsNewPlayer(false), 0);
+            // setTimeout(() => setIsNewPlayer(false), 0);
           }
         })
         .catch((error) => console.log(error));
