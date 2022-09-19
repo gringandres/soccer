@@ -59,6 +59,7 @@ const Form = () => {
           if (idFilter) {
             setSubmited(true);
           } else {
+            info.gender = "Male";
             supabasePostData(info);
             setSubmited(true);
           }
