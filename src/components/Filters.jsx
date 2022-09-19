@@ -8,10 +8,12 @@ import {
   optionPantaloneta,
   optionIdtype,
   optionPosicion,
+  optionGender,
   CAMISETA,
   PANTALONETA,
   IDTYPE,
   POSICION,
+  GENDER,
 } from "../constants/constants";
 
 const Filters = ({
@@ -45,6 +47,9 @@ const Filters = ({
         break;
       case POSICION:
         setSelectValuesToShow(optionPosicion);
+        break;
+      case GENDER:
+        setSelectValuesToShow(optionGender);
         break;
       default:
         setSelectValuesToShow([]);
