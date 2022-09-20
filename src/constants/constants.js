@@ -5,14 +5,15 @@ export const IDTYPE = "idType";
 export const GENDER = "gender";
 
 export const optionValues = [
-  "Camiseta",
-  "Pantaloneta",
-  "Posicion",
-  "Name",
   "idType",
   "CC",
-  "Eps",
+  "Name",
   "Gender",
+  "Posicion",
+  "Ciudad",
+  "Camiseta",
+  "Pantaloneta",
+  "Eps",
 ];
 
 export const optionCamiseta = ["S", "M", "L", "XL", "XXL", "XXXL"];
