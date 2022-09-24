@@ -21,7 +21,7 @@ const Form = () => {
     posicion: "",
     contacto: "",
   });
-  const [submited, setSubmited] = useState(false);
+  const [submited, setSubmited] = useState(true); //block form
 
   const handleInfo = (e) => {
     const { name, value } = e.target;
