@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { goToPathnameUrl } from "../utils/helpers";
-import "../style.css";
 
 const Login = () => {
   const [info, setInfo] = useState({
@@ -32,11 +31,10 @@ const Login = () => {
 
   return (
     <>
-      <section className="login-container background-banner1">
-        <div className="box p-5" style={{ gridColumn: "2" }}>
-          <div className="field">
+      <section>
+        <div style={{ gridColumn: "2" }}>
+          <div>
             <input
-              className="input"
               type="text"
               placeholder="User"
               value={info.user}
@@ -44,9 +42,8 @@ const Login = () => {
               onChange={handleInfo}
             />
           </div>
-          <div className="field">
+          <div>
             <input
-              className="input"
               type="password"
               placeholder="Password"
               value={info.password}
@@ -54,16 +51,9 @@ const Login = () => {
               onChange={handleInfo}
             />
           </div>
-          <div className="field is-flex is-justify-content-center mt-5">
-            <button className="button button-team-blue" onClick={handleSubmit}>
-              Login
-            </button>
-            <button
-              className="button button-team-blue ml-3"
-              onClick={() => goToPathnameUrl("/")}
-            >
-              Cancel
-            </button>
+          <div>
+            <button onClick={handleSubmit}>Login</button>
+            <button onClick={() => goToPathnameUrl("/")}>Cancel</button>
           </div>
         </div>
       </section>

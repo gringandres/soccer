@@ -8,15 +8,14 @@ const SelectRender = ({
   handleInfo,
 }) => {
   return (
-    <div className="field is-horizontal ">
-      <div className="field-label is-normal">
-        <label className="label">{label}</label>
+    <div>
+      <div>
+        <label>{label}</label>
       </div>
 
-      <div className="field-body">
-        <div style={{ width: "100%" }} className="select is-info">
+      <div>
+        <div style={{ width: "100%" }}>
           <select
-            className="container"
             value={selectValue}
             name={selectName}
             onChange={handleInfo}

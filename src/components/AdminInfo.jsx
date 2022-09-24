@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import AdminTable from "./AdminTable";
 import Filters from "./Filters";
-import { BUTTON_OUTLINE_BLUE } from "../constants/style.utils";
 import { fetchSupabase } from "../supabase/supabase";
 
 const AdminInfo = () => {
   const [allPlayerTournament, setAllPlayerTournament] = useState([]);
-  const [tableFiltered, setTableFiltered] = useState([])
-  const [noResults, setNoResults] = useState(false)
+  const [tableFiltered, setTableFiltered] = useState([]);
+  const [noResults, setNoResults] = useState(false);
   const [popup, setPopup] = useState(false);
   const user = sessionStorage.getItem("token");
 
@@ -19,15 +18,15 @@ const AdminInfo = () => {
 
   useEffect(() => {
     fetchSupabase()
-      .then(res => res.json())
-      .then(tournament => setAllPlayerTournament(tournament))
+      .then((res) => res.json())
+      .then((tournament) => setAllPlayerTournament(tournament));
   }, [allPlayerTournament]);
 
   return (
-    <div className="my-5">
-      <div className="is-flex is-justify-content-flex-end mr-4">
+    <div className="">
+      <div className="">
         <button
-          className={BUTTON_OUTLINE_BLUE}
+          className=""
           onClick={() => {
             sessionStorage.removeItem("token");
             window.location.replace("/");
@@ -36,41 +35,44 @@ const AdminInfo = () => {
           Salir
         </button>
       </div>
-      <div className="is-flex is-justify-content-center is-align-items-center is-flex-direction-column mb-5">
-        {tableFiltered.length > 0 || noResults
-          ? <button
-            className={BUTTON_OUTLINE_BLUE}
+      <div className="">
+        {tableFiltered.length > 0 || noResults ? (
+          <button
+            className=""
             onClick={() => {
-              setTableFiltered([])
-              setNoResults(false)
+              setTableFiltered([]);
+              setNoResults(false);
             }}
-          >Clear Filters</button>
-          : <div>
-            <h2 className="is-size-4 mr-4 filter-title">Filter</h2>
+          >
+            Clear Filters
+          </button>
+        ) : (
+          <div>
+            <h2 className="">Filter</h2>
             <input
-              className="filter-input"
+              className=""
               id="filter"
               type="text"
               onFocus={() => setPopup(true)}
-              placeholder='Click here to show the filters...'
+              placeholder="Click here to show the filters..."
             />
           </div>
-        }
+        )}
       </div>
-      {popup &&
+      {popup && (
         <Filters
           allPlayerTournament={allPlayerTournament}
           setPopup={setPopup}
           setTableFiltered={setTableFiltered}
           setNoResults={setNoResults}
         />
-      }
+      )}
       <AdminTable
         allPlayerTournament={allPlayerTournament}
         tableFiltered={tableFiltered}
         noResults={noResults}
       />
-    </div >
+    </div>
   );
 };
 

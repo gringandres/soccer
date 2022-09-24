@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import SelectRender from "./SelectRender";
 import InputRender from "./InputRender";
-import "../style.css";
+
 import {
   optionValues,
   optionCamiseta,
@@ -88,20 +88,15 @@ const Filters = ({
   };
 
   return (
-    <div className="filters-popup-container">
-      <div className="filters-popup">
+    <div>
+      <div>
         <section>
-          <div className="is-flex is-justify-content-space-between is-align-items-center mt-3 ">
-            <h2 className="is-size-4">Filters</h2>
-            <button
-              className="filter-popup-close"
-              onClick={() => setPopup(false)}
-            >
-              &#10006;
-            </button>
+          <div>
+            <h2>Filters</h2>
+            <button onClick={() => setPopup(false)}>&#10006;</button>
           </div>
           <div>
-            <div className="mt-5">
+            <div>
               <SelectRender
                 label="Search for"
                 selectValue={valueFilter.filterSearch}
@@ -111,7 +106,7 @@ const Filters = ({
               />
             </div>
             {!selectValuesToShow.length > 0 ? (
-              <div className="mt-4">
+              <div>
                 <InputRender
                   label="Value"
                   inputValue={valueFilter.filterValue}
@@ -121,7 +116,7 @@ const Filters = ({
                 />
               </div>
             ) : (
-              <div className="mt-4">
+              <div>
                 <SelectRender
                   label="Value"
                   inputValue={valueFilter.filterValue}
@@ -131,31 +126,8 @@ const Filters = ({
                 />
               </div>
             )}
-            {/* <div className="mt-4">
-              <InputRender
-                label="Value"
-                inputValue={valueFilter.filterValue}
-                inputName="filterValue"
-                placeholder=""
-                handleInfo={handleFilter}
-              />
-            </div>
-            <div className="mt-4">
-              <InputRender
-                label="Value"
-                inputValue={valueFilter.filterValue}
-                inputName="filterValue"
-                placeholder=""
-                handleInfo={handleFilter}
-              />
-            </div> */}
-            <div className="is-flex is-justify-content-center">
-              <button
-                className="button button-team-blue px-5 mt-5"
-                onClick={handleClickFilter}
-              >
-                Search
-              </button>
+            <div>
+              <button onClick={handleClickFilter}>Search</button>
             </div>
           </div>
         </section>

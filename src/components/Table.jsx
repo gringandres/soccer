@@ -1,8 +1,4 @@
-import { useState, useEffect } from "react";
-import {
-  BUTTON_OUTLINE_BLUE,
-  BUTTON_OUTLINE_RED,
-} from "../constants/style.utils";
+import { useState } from "react";
 import trash from "../svg/trash.svg";
 import { playerFiltered } from "../utils/helpers";
 
@@ -87,7 +83,6 @@ const RowGenerater = ({ player, allPlayers, setAllPlayers }) => {
       <th>{player + 1}</th>
       <th>
         <input
-          className="input is-info"
           type="text"
           value={info.name}
           name="name"
@@ -96,9 +91,8 @@ const RowGenerater = ({ player, allPlayers, setAllPlayers }) => {
         />
       </th>
       <th>
-        <div className="select is-info">
+        <div>
           <select
-            className=""
             value={
               info.index === probando.index ? probando.posicion : info.posicion
             }
@@ -124,18 +118,14 @@ const RowGenerater = ({ player, allPlayers, setAllPlayers }) => {
       </th>
       {!isSubmited ? (
         <th>
-          <button
-            className={BUTTON_OUTLINE_BLUE}
-            onClick={handleSubmit}
-            disabled={isSubmited}
-          >
+          <button onClick={handleSubmit} disabled={isSubmited}>
             Registrar
           </button>
         </th>
       ) : (
         <th>
-          <button className={BUTTON_OUTLINE_RED} onClick={handleDelete}>
-            <span className="icon is-small">
+          <button onClick={handleDelete}>
+            <span>
               <img src={trash}></img>
             </span>
           </button>
@@ -148,7 +138,7 @@ const RowGenerater = ({ player, allPlayers, setAllPlayers }) => {
 const Table = ({ allPlayers, setAllPlayers }) => {
   const players = Array.from(Array(14).keys());
   return (
-    <table className="table">
+    <table>
       <thead>
         <tr>
           <th>

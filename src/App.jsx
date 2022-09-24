@@ -6,7 +6,6 @@ import AdminInfo from "./components/AdminInfo";
 import Login from "./components/Login";
 // import { BUTTON_OUTLINE_BLUE } from "./constants/style.utils";
 // import { goToPathnameUrl } from "./utils/helpers";
-import "./style.css";
 
 const App = () => {
   return (

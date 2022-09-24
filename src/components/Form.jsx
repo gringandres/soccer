@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { BUTTON_OUTLINE_BLUE } from "../constants/style.utils";
 import { goToPathnameUrl } from "../utils/helpers";
 import { inputObject, selectObject } from "../utils/helperObjects";
 import { supabasePostData, fetchSupabase } from "../supabase/supabase";
@@ -7,7 +6,6 @@ import { optionIdtype } from "../constants/constants";
 import SelectRender from "./SelectRender";
 import InputRender from "./InputRender";
 import bird from "../svg/teamIcon2.png";
-import "../style.css";
 
 const Form = () => {
   const [info, setInfo] = useState({
@@ -21,7 +19,7 @@ const Form = () => {
     posicion: "",
     contacto: "",
   });
-  const [submited, setSubmited] = useState(true); //block form
+  const [submited, setSubmited] = useState(false);
 
   const handleInfo = (e) => {
     const { name, value } = e.target;
@@ -71,14 +69,12 @@ const Form = () => {
   };
 
   return (
-    <section className="background-banner2">
+    <section>
       {!submited ? (
-        <div className="form-container">
-          <h2 className="title is-3 team-title">
-            FILL THE FORM FOR THE INSCRIPTION
-          </h2>
+        <div>
+          <h2>FILL THE FORM FOR THE INSCRIPTION</h2>
           <div>
-            <section className="form-section box p-5">
+            <section>
               <SelectRender
                 label="Identification Type"
                 selectValue={info.idType}
@@ -115,29 +111,19 @@ const Form = () => {
                 type="text"
               />
 
-              <section className="is-flex is-justify-content-center">
-                <button
-                  className={`${BUTTON_OUTLINE_BLUE} mx-2 button-team-blue`}
-                  onClick={handleSubmit}
-                >
-                  Submit
-                </button>
-                <button
-                  className={`${BUTTON_OUTLINE_BLUE} mx-2 button-team-blue`}
-                  onClick={() => goToPathnameUrl("/")}
-                >
-                  Cancel
-                </button>
+              <section>
+                <button onClick={handleSubmit}>Submit</button>
+                <button onClick={() => goToPathnameUrl("/")}>Cancel</button>
               </section>
             </section>
           </div>
         </div>
       ) : (
         <>
-          <div className="form-success">
-            <img src={bird} className="team-bird" />
-            <article className="message is-primary text-success">
-              <div className="message-body">You Have Scored a Goal!</div>
+          <div>
+            <img src={bird} />
+            <article>
+              <div>You Have Scored a Goal!</div>
             </article>
           </div>
         </>

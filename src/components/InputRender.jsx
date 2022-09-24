@@ -9,14 +9,13 @@ const InputRender = ({
   type = "text",
 }) => {
   return (
-    <div className="field is-horizontal">
-      <div className="field-label is-normal">
-        <label className="label">{label}</label>
+    <div>
+      <div>
+        <label>{label}</label>
       </div>
-      <div className="field-body">
-        <div className="field">
+      <div>
+        <div>
           <input
-            className="input is-info"
             type={type}
             placeholder={placeholder}
             value={inputValue}
